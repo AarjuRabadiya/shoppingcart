@@ -1,2 +1,1 @@
 "#shoppingcart" 
-#shoppingcart
