@@ -20,7 +20,6 @@ return(
             <div className="middleclose" onClick={() => this.props.handleDeleteFromCart()}>
               <i className="close fa fa-times closetext" aria-hidden="true"></i>
             </div>
-            {/* <i className="close fa fa-times" onClick={() => this.props.handleDeleteFromCart()}></i> */}
           </div></td>
         <td className="align-center"><button onClick={() => this.minus()}><i className="close fa fa-minus"></i></button></td>
         <td className="align-center">{this.props.cartItem.units}</td>

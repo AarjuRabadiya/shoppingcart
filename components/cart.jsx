@@ -1,5 +1,4 @@
 import React from 'react';
-//import Check from './checkOut' 
 import CartItems from './cartItems';
 import { bindActionCreators } from 'redux'
 import {connect} from 'react-redux';
@@ -10,7 +9,6 @@ class Cart extends React.Component {
     return (
       <>
               {
-              // this.state.showReply &&
                this.Show()} 
               </>
     );
@@ -27,18 +25,6 @@ class Cart extends React.Component {
  Show=()=>{
    if(this.props.cart.length===0){
     return(
-      
-      // <div className="cart-items">
-      //   {/* {this.disable()} */}
-      //   <table className="cartTable">
-      //   <tbody>
-      //    {this.cartList()}
-      //   </tbody>
-      //   </table>
-      //   <h4 className="cartSubTotal">{this.cartTotal()}</h4>
-      //  <table>
-      //  </table>
-      // </div>
     <></>
     )
    }
@@ -110,7 +96,6 @@ cartTotal=()=> {
 totalAmount=(cartArray)=> {
     return cartArray.reduce((acum, item) => {
         acum += item.price * item.units;
-        //acum+=item.units;
         return acum;
     }, 0);
 }

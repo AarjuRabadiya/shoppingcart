@@ -15,7 +15,6 @@ dispachAddToCarts=(product)=>{
     this.props.addToCart(product);
 }
   onClick=(e)=>{
-    //e.preventDefault();
     let val=this.props.product["id"]-1
     this.setState({
       setId: val
@@ -24,7 +23,6 @@ dispachAddToCarts=(product)=>{
   }
   
   onleftClick=(e)=>{
-    //console.log(this.props.products.length)
     if(this.state.setId<1){
       let val=this.props.products.length-1;
       this.setState({
@@ -55,13 +53,10 @@ dispachAddToCarts=(product)=>{
   }
 
   close=()=>{
-    //e.preventDefault();
     this.setState({showModal:false})
   }
   Modal=()=>{
     let id=this.state.setId;
-    //let id=1
-    //console.log(this.props.products[id]);
     return(
       <div className="modalWrapper">
         <div className="prevProduct">
@@ -80,10 +75,7 @@ dispachAddToCarts=(product)=>{
           <div className="description">{this.props.products[id]["description"]}</div>
           <div className="details">{this.props.products[id]["details"]}</div>
           <h3 className="price">${this.props.products[id]["price"]}</h3>
-          {/* <label htmlFor="modalAmount">QTY</label>
-          <input id="modalAmount" className="amount" value="1" readOnly></input> */}
           <button onClick={() => {
-          // this.props.handleOnAdd(this.props.product);
           this.dispachAddToCarts(this.props.products[id])
           this.close();
         }}>Add to Cart</button>

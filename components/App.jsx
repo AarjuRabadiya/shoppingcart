@@ -17,24 +17,10 @@ class App extends React.Component {
   }
 
   handleClick=()=> {
-    // if (!this.state.popupVisible) {
-    //   document.addEventListener('click', this.handleOutsideClick, false);
-    // } else {
-    //   document.removeEventListener('click', this.handleOutsideClick, false);
-    // }
-
     this.setState(prevState => ({
        popupVisible: !prevState.popupVisible,
     }));
   }
-  // handleOutsideClick=(e)=> {
-    
-  //   if (this.node.contains(e.target)) {
-  //     return;
-  //   }
-  //   this.handleClick();
-  // }
-
 dispachAddToCart=(product)=>{
     this.props.addToCart(product);
     
@@ -86,7 +72,6 @@ demo=()=>{
           <Cart></Cart> )}
         </div>
         <h1 onClick={this.demo}>Products</h1>
-        {/*  ref={node => { this.node = node; }} */}
         <div className="products" onClick={this.demo}>
         {this.renderProducts()}
         </div>

@@ -47,7 +47,6 @@ class CheckOut extends React.Component {
     totalAmount=(cartArray)=> {
         return cartArray.reduce((acum, item) => {
             acum += item.price * item.units;
-            //acum+=item.units;
             return acum;
         }, 0);
     }
@@ -93,7 +92,6 @@ class CheckOut extends React.Component {
         )
     }
   render() {
-      //console.log("props",this.props)
       if (this.props.cart.length !== 0) {
         return (
             <>
