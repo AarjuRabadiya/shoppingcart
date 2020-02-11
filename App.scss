@@ -1,0 +1,334 @@
+.App {
+    text-align: center;
+    .header {
+        position: relative;
+        background: -webkit-gradient(linear, right top, left top, from(#8E0E00), to(#1F1C18));
+        background: linear-gradient(to left, #8E0E00, #1F1C18);
+        background-size: cover;
+        height: 25em;
+        width: 100vw;
+        box-shadow: inset -1px -3px 5px rgba(0, 0, 0, 0.5), inset 1px 3px 5px rgba(0, 0, 0, 0.5);
+        h1 {
+            position: absolute;
+            text-align: center;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 3em;
+            text-shadow: 1px 3px 5px rgba(0, 0, 0, 0.5), -1px -3px 5px rgba(0, 0, 0, 0.5);
+          }  
+    }
+    #vue {
+        margin: 0 auto;
+        padding: 0.5em;
+        text-align: center;
+        .products {
+            margin: 0 auto;
+            width: 100%;
+            max-width: 80em;
+            .product {
+                display: inline-block;
+                margin: 0.75em;
+                width: 100%;
+                max-width: 18em;
+                .image {
+                    width: 18em;
+                    height: 18em;
+                    margin-bottom: 0.5em;
+                    position: relative;
+                    overflow: hidden;
+                    cursor: pointer;
+                    -webkit-transition: box-shadow 0.25s;
+                    transition: box-shadow 0.25s;
+                    background-size: cover;
+                    background-position: center center;
+                }
+                .name {
+                    font-weight: bold;
+                    font-size: 1.25em;
+                }
+                .description {
+                    font-style: italic;
+                }
+                .price {
+                    font-weight: bold;
+                }
+            }              
+        }
+        .cart {
+            position: fixed;
+            right: 0em;
+            top: 0em;
+            text-align: right;
+            background: rgba(0, 0, 0, 0.85);
+            color: white;
+            z-index: 1;
+            .cart-size {
+                padding: 1em 0 1em 1em;
+            }
+            .cart-size {
+                cursor: pointer;
+                font-size: 1.25em;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+            .fa-shopping-cart {
+                padding: 1em 1em 1em 0;
+            }
+            .cart-items {
+                padding: 0 1em 2em 1em;
+                /* display: none; */
+                .cartTable {
+                    width: 20em;
+                }
+                .cartSubTotal {
+                    border-top: 1px solid white;
+                    font-size: 1.25em;
+                }
+                .clearCart {
+                    float: left;
+                    margin-top: 2em;
+                    margin-bottom: 1.25em;
+                }
+                .checkoutCart {
+                    float: right;
+                    margin-top: 2em;
+                    margin-bottom: 1.25em;
+                }
+                .cartImage {
+                    background-size: cover;
+                    background-position: center center;
+                    width: 4em;
+                    height: 4em;
+                    margin: 0.5em auto;
+                    position: relative;
+                    cursor: pointer;
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(0, 0, 0, 0.25);
+                        -webkit-transition: all 0.1s;
+                        transition: all 0.1s;
+                    }
+                    i {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        -webkit-transform: translate(-50%, -50%);
+                        transform: translate(-50%, -50%);
+                        font-size: 1.5em;
+                        z-index: 1;
+                        -webkit-transition: all 0.25s;
+                        transition: all 0.25s;
+                    }
+                }
+            }
+        }
+        .modalWrapper {
+            position: relative;
+            /* display: none; */
+            .prevProduct {
+                left: calc(50% - 9.5em);
+            }
+            .nextProduct {
+                right: calc(50% - 9.5em);
+            }
+            .prevProduct, .nextProduct {
+                position: fixed;
+                color: white;
+                font-size: 2em;
+                cursor: pointer;
+                top: 50%;
+                -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
+                padding: 1em;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                z-index: 5;
+            }
+            .overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.7);
+                z-index: 2;
+            }
+            .modal {
+                margin-top: 15px;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                background: white;
+                padding: 2em;
+                text-align: center;
+                max-height: calc(100% - 2em);
+                overflow-y: scroll;
+                overflow-x: hidden;
+                -webkit-animation: openUp 0.1s;
+                animation: openUp 0.1s;
+                z-index: 3;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+                .close {
+                    position: fixed;
+                    top: -0.5em;
+                    right: -0.5em;
+                    cursor: pointer;
+                    padding: 1em;
+                }
+                .imageWrapper {
+                    width: 25em;
+                    height: 25em;
+                    margin: 0.5em auto;
+                    overflow: hidden;
+                }
+                .name {
+                    font-weight: bold;
+                    font-size: 1.25em;
+                }
+                .description {
+                    font-style: italic;
+                }
+                .details {
+                    max-width: 25em;
+                    margin: 0 auto;
+                    padding: 0.5em 0;
+                }
+                .price {
+                    font-weight: bold;
+                    padding-bottom: 0.5em;
+                }
+            }
+        }
+        .checkout-area table {
+            margin: 0 auto;
+            padding: 0.5em;
+            width: 100%;
+            max-width: 40em;
+            text-align: left;
+            td, th {
+                padding: 0 0.25em;
+            }  
+        } 
+    }
+    img{
+        width: 18em;
+      height: 18em;
+      margin-bottom: 0.5em;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      -webkit-transition: box-shadow 0.25s;
+      transition: box-shadow 0.25s;
+      background-size: cover;
+      background-position: center center;
+    }
+    button {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        padding: 0.5em;
+        margin: 0.5em 0;
+        background: white;
+        border: 1px solid black;
+        -webkit-transition: all 0.1s;
+        transition: all 0.1s;
+        font-size: 14px;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        &:hover{
+            background: black;
+            color: white;
+          }
+    }
+    .fa {
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    .align-left {
+        text-align: left;
+    }
+    .fa-times:before {
+        content: "\f00d";
+    }
+    .align-center {
+        text-align: center;
+    }
+    .containerimage {
+        position: relative;
+        width: 50%;
+        &:hover .image {
+            opacity: 0.7;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        &:hover .middle {
+            opacity: 1;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        &:hover .middleclose {
+            opacity: 1;
+            background: rgba(0, 0, 0, 0.5);
+          }
+    } 
+    .image {
+        .cartImage{
+            opacity: 1;
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: .5s ease;
+            backface-visibility: hidden;
+        }    
+    }
+    .middle {
+        transition: .5s ease;
+        opacity: 0;
+        position: absolute;
+        top: 48%;
+        left: 100%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        text-align: center; 
+    }
+    .text {
+        color: white;
+        font-size: 106px;
+        padding: 91px 94px;
+    }
+    .closetext{
+        color: white;
+        font-size: 30px;
+        padding: 17px 20px;
+    }
+    .middleclose {
+        transition: .5s ease;
+        opacity: 0;
+        position: absolute;
+        top: 48%;
+        left: 73%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        text-align: center; 
+    }
+}
